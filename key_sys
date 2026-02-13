@@ -1,7 +1,7 @@
 --// ================= CONFIG =================
 local KEY_LINK = "https://linkvertise.com/1240252/lEwCSc1FBqcB?o=sharing"
 
-local KEY_URL = "https://raw.githubusercontent.com/demirpw/CxHub/main/KEY.txt"
+local KEY_URL = "https://raw.githubusercontent.com/demirpw/CxHub/main/--"
 
 local GameScripts = {
     [6252985844] = "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
