@@ -6,7 +6,7 @@ local KEY_URL = "https://raw.githubusercontent.com/demirpw/CxHub/main/--"
 local GameScripts = {
     [6252985844] = "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
     [83333932726271] = "https://raw.githubusercontent.com/demirpw/CxHub/main/%F0%9F%92%A5Trap%20Run%20%5BUPD%5D",
-    [1122334455] = "https://pastebin.com/raw/CCC"
+    [109983668079237] = "https://raw.githubusercontent.com/demirpw/CxHub/main/steal%20a%20brainrot"
 }
 
 --// ================= SERVICES =================
