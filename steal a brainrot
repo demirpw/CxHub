@@ -1,0 +1,234 @@
+--// SERVICES
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+local UIS = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+
+local function getChar()
+	return player.Character or player.CharacterAdded:Wait()
+end
+
+--// GUI
+local gui = Instance.new("ScreenGui")
+gui.Parent = player:WaitForChild("PlayerGui")
+gui.Name = "AdvancedTeleportMenu"
+gui.ResetOnSpawn = false
+
+--// TOGGLE BUTTON
+local toggle = Instance.new("TextButton", gui)
+toggle.Size = UDim2.new(0, 120, 0, 40)
+toggle.Position = UDim2.new(1, -140, 0.5, -20)
+toggle.Text = "OPEN"
+toggle.Font = Enum.Font.GothamBold
+toggle.TextSize = 14
+toggle.BackgroundColor3 = Color3.fromRGB(20,20,30)
+toggle.TextColor3 = Color3.fromRGB(170,85,255)
+Instance.new("UICorner", toggle).CornerRadius = UDim.new(0, 10)
+
+--// MAIN FRAME
+local main = Instance.new("Frame", gui)
+main.Size = UDim2.new(0, 320, 0, 220)
+main.Position = UDim2.new(1, -340, 0.5, -110)
+main.BackgroundColor3 = Color3.fromRGB(15,15,20)
+main.Visible = false
+main.ClipsDescendants = true
+Instance.new("UICorner", main).CornerRadius = UDim.new(0, 16)
+
+--// GRADIENT GLOW BORDER
+local stroke = Instance.new("UIStroke", main)
+stroke.Thickness = 2
+
+local gradient = Instance.new("UIGradient", stroke)
+gradient.Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(170,0,255)),
+	ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255,0,200)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(170,0,255))
+}
+
+-- Glow Animation
+RunService.RenderStepped:Connect(function()
+	gradient.Rotation += 1
+end)
+
+--// TITLE
+local title = Instance.new("TextLabel", main)
+title.Size = UDim2.new(1, 0, 0, 40)
+title.BackgroundTransparency = 1
+title.Text = "CxHub discord.gg/cgSVQ9jGDx"
+title.Font = Enum.Font.GothamBold
+title.TextSize = 18
+title.TextColor3 = Color3.fromRGB(200,120,255)
+
+--// DRAG SYSTEM (PC + Mobile)
+local dragging = false
+local dragInput, dragStart, startPos
+
+local function update(input)
+	local delta = input.Position - dragStart
+	main.Position = UDim2.new(
+		startPos.X.Scale,
+		startPos.X.Offset + delta.X,
+		startPos.Y.Scale,
+		startPos.Y.Offset + delta.Y
+	)
+end
+
+main.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1
+	or input.UserInputType == Enum.UserInputType.Touch then
+		
+		dragging = true
+		dragStart = input.Position
+		startPos = main.Position
+		
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
+	end
+end)
+
+main.InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement
+	or input.UserInputType == Enum.UserInputType.Touch then
+		dragInput = input
+	end
+end)
+
+UIS.InputChanged:Connect(function(input)
+	if input == dragInput and dragging then
+		update(input)
+	end
+end)
+
+--// BUTTON CREATOR
+local function createButton(text, posY, vec)
+	local btn = Instance.new("TextButton", main)
+	btn.Size = UDim2.new(0.9,0,0,45)
+	btn.Position = UDim2.new(0.05,0,0,posY)
+	btn.BackgroundColor3 = Color3.fromRGB(25,25,35)
+	btn.Text = text
+	btn.Font = Enum.Font.Gotham
+	btn.TextSize = 14
+	btn.TextColor3 = Color3.fromRGB(220,220,255)
+	btn.AutoButtonColor = false
+	
+	Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 10)
+
+	local btnStroke = Instance.new("UIStroke", btn)
+	btnStroke.Color = Color3.fromRGB(170,0,255)
+	btnStroke.Thickness = 1
+
+	btn.MouseEnter:Connect(function()
+		TweenService:Create(btn, TweenInfo.new(0.2), {
+			BackgroundColor3 = Color3.fromRGB(40,40,60)
+		}):Play()
+	end)
+
+	btn.MouseLeave:Connect(function()
+		TweenService:Create(btn, TweenInfo.new(0.2), {
+			BackgroundColor3 = Color3.fromRGB(25,25,35)
+		}):Play()
+	end)
+
+	btn.MouseButton1Click:Connect(function()
+	local char = getChar()
+	local hrp = char:WaitForChild("HumanoidRootPart")
+
+	local targetPos = vec
+	local distance = (hrp.Position - targetPos).Magnitude
+	
+	-- Mesafeye göre süre (daha gerçekçi uçuş)
+	local speed = 200 -- ne kadar büyükse o kadar hızlı uçar
+	local time = distance / speed
+	
+	local tween = TweenService:Create(
+		hrp,
+		TweenInfo.new(time, Enum.EasingStyle.Linear),
+		{CFrame = CFrame.new(targetPos)}
+	)
+	
+	tween:Play()
+end)
+end
+
+-- TELEPORT BUTTONS
+createButton("Tp Right Base", 60, Vector3.new(-352,-7,114))
+createButton("Tp Left Base", 120, Vector3.new(-352,-7,7))
+
+--// SMOOTH OPEN / CLOSE
+local opened = false
+
+toggle.MouseButton1Click:Connect(function()
+	opened = not opened
+	
+	if opened then
+		main.Visible = true
+		main.Size = UDim2.new(0,320,0,0)
+		
+		TweenService:Create(main, TweenInfo.new(0.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {
+			Size = UDim2.new(0,320,0,220)
+		}):Play()
+		
+		toggle.Text = "CLOSE"
+	else
+		local tween = TweenService:Create(main, TweenInfo.new(0.3, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {
+			Size = UDim2.new(0,320,0,0)
+		})
+		
+		tween:Play()
+		tween.Completed:Wait()
+		main.Visible = false
+		
+		toggle.Text = "OPEN"
+	end
+end)
+
+--// MOR ESP
+
+local ESP_ENABLED = true
+
+local function addESP(character)
+	if character:FindFirstChild("PurpleESP") then return end
+	
+	local highlight = Instance.new("Highlight")
+	highlight.Name = "PurpleESP"
+	highlight.FillColor = Color3.fromRGB(170, 0, 255)
+	highlight.OutlineColor = Color3.fromRGB(255, 0, 200)
+	highlight.FillTransparency = 0.5
+	highlight.OutlineTransparency = 0
+	highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+	highlight.Parent = character
+end
+
+local function removeESP(character)
+	local esp = character:FindFirstChild("PurpleESP")
+	if esp then
+		esp:Destroy()
+	end
+end
+
+local function setupPlayer(plr)
+	if plr == player then return end
+	
+	plr.CharacterAdded:Connect(function(char)
+		if ESP_ENABLED then
+			addESP(char)
+		end
+	end)
+	
+	if plr.Character and ESP_ENABLED then
+		addESP(plr.Character)
+	end
+end
+
+-- Mevcut oyuncular
+for _, plr in pairs(Players:GetPlayers()) do
+	setupPlayer(plr)
+end
+
+-- Yeni gelen oyuncular
+Players.PlayerAdded:Connect(setupPlayer)
