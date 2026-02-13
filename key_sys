@@ -1,12 +1,293 @@
---[[
- .____                  ________ ___.    _____                           __                
- |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
- |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
- |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
- |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
-         \/          \/         \/    \/                \/     \/     \/                   
-          \_Welcome to LuaObfuscator.com   (Alpha 0.10.9) ~  Much Love, Ferib 
+--// ================= CONFIG =================
+local KEY_LINK = "https://linkvertise.com/1240252/lEwCSc1FBqcB?o=sharing"
 
-]]--
+local KEY_URL = "https://raw.githubusercontent.com/demirpw/CxHub/main/KEY.txt"
 
-local v0="https://linkvertise.com/1240252/lEwCSc1FBqcB?o=sharing";local v1="https://raw.githubusercontent.com/demirpw/CxHub/refs/heads/main/--";local v2={[6252985844]="https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",[83333932726271]="https://raw.githubusercontent.com/demirpw/CxHub/refs/heads/main/%F0%9F%92%A5Trap%20Run%20%5BUPD%5D",[1122334455]="https://pastebin.com/raw/CCC"};local v3=game:GetService("UserInputService");local v4=game:GetService("Players");local v5=game:GetService("TweenService");local v6=game:GetService("Lighting");local v7=v4.LocalPlayer;v3.MouseBehavior=Enum.MouseBehavior.Default;v3.MouseIconEnabled=true;local v11=Instance.new("BlurEffect",v6);v11.Size=0;v5:Create(v11,TweenInfo.new(0.5),{Size=18}):Play();local v13=Instance.new("ScreenGui",v7:WaitForChild("PlayerGui"));v13.Name="CxHub_KeySystem";v13.IgnoreGuiInset=true;v13.ResetOnSpawn=false;v13.Parent=v7:WaitForChild("PlayerGui");for v91=1,30 do local v92=Instance.new("Frame",v13);v92.Size=UDim2.new(0,4,0,4);v92.BackgroundColor3=Color3.fromRGB(0,255,255);v92.BorderSizePixel=0;v92.AnchorPoint=Vector2.new(0.5,0.5);v92.Position=UDim2.new(math.random(),0,math.random(),0);v92.ZIndex=0;local v99=Instance.new("UICorner",v92);v99.CornerRadius=UDim.new(1,0);task.spawn(function() while v92.Parent do v5:Create(v92,TweenInfo.new(math.random(3,6),Enum.EasingStyle.Sine,Enum.EasingDirection.InOut),{Position=UDim2.new(math.random(),0,math.random(),0)}):Play();task.wait(math.random(3,6));end end);end local v18=Instance.new("Frame",v13);v18.Size=UDim2.new(0,0,0,0);v18.Position=UDim2.new(0.5,0,0.5,0);v18.AnchorPoint=Vector2.new(0.5,0.5);v18.BackgroundColor3=Color3.fromRGB(15,15,15);v18.BackgroundTransparency=0.1;Instance.new("UICorner",v18).CornerRadius=UDim.new(0,18);local v25,v26,v27,v28;v18.InputBegan:Connect(function(v101) if (v101.UserInputType==Enum.UserInputType.MouseButton1) then v25=true;v27=v101.Position;v28=v18.Position;end end);v18.InputChanged:Connect(function(v102) if (v102.UserInputType==Enum.UserInputType.MouseMovement) then v26=v102;end end);v3.InputChanged:Connect(function(v103) if ((v103==v26) and v25) then local v115=v103.Position-v27 ;v18.Position=UDim2.new(v28.X.Scale,v28.X.Offset + v115.X ,v28.Y.Scale,v28.Y.Offset + v115.Y );end end);v3.InputEnded:Connect(function(v104) if (v104.UserInputType==Enum.UserInputType.MouseButton1) then v25=false;end end);local v29=Instance.new("Frame",v18);v29.Size=UDim2.new(0.8,0,0,6);v29.Position=UDim2.new(0.1,0,0.9,0);v29.BackgroundColor3=Color3.fromRGB(40,40,40);v29.BackgroundTransparency=0.2;local v34=Instance.new("Frame",v29);v34.Size=UDim2.new(0,0,1,0);v34.BackgroundColor3=Color3.fromRGB(0,255,255);Instance.new("UICorner",v29);Instance.new("UICorner",v34);local function v37() v34.Size=UDim2.new(0,0,1,0);v5:Create(v34,TweenInfo.new(1.2,Enum.EasingStyle.Quad),{Size=UDim2.new(1,0,1,0)}):Play();end local v38=Instance.new("UIStroke",v18);v38.Color=Color3.fromRGB(0,255,255);v38.Thickness=2;v38.Transparency=0.3;local v42=Instance.new("UIGradient",v18);v42.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(0,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(140,0,255))});v42.Rotation=45;local v45=Instance.new("TextLabel",v18);v45.Size=UDim2.new(1,0,0,45);v45.BackgroundTransparency=1;v45.Text="CxHub";v45.TextScaled=true;v45.Font=Enum.Font.GothamBold;v45.TextColor3=Color3.new(1,1,1);v45.TextTransparency=1;local v54=Instance.new("TextBox",v18);v54.Size=UDim2.new(0.8,0,0,40);v54.AnchorPoint=Vector2.new(0.5,0.5);v54.Position=UDim2.new(0.5,0,0.35,0);v54.Text="";v54.PlaceholderText="Enter Key...";v54.BackgroundColor3=Color3.fromRGB(25,25,25);v54.TextColor3=Color3.new(1,1,1);v54.Font=Enum.Font.Gotham;v54.TextScaled=true;v54.TextTransparency=0;Instance.new("UICorner",v54).CornerRadius=UDim.new(0,12);local v67=Instance.new("TextButton",v18);v67.Size=UDim2.new(0.7,0,0,34);v67.AnchorPoint=Vector2.new(0.5,0.5);v67.Position=UDim2.new(0.5,0,0.78,0);v67.Text="Submit";v67.BackgroundColor3=Color3.fromRGB(0,255,255);v67.TextColor3=Color3.new(0,0,0);v67.Font=Enum.Font.GothamBold;v67.TextScaled=true;v67.TextTransparency=0;Instance.new("UICorner",v67).CornerRadius=UDim.new(0,12);local v78=Instance.new("TextButton",v18);v78.Size=UDim2.new(0.65,0,0,30);v78.AnchorPoint=Vector2.new(0.5,0.5);v78.Position=UDim2.new(0.5,0,0.6,0);v78.Text="Get Key";v78.BackgroundColor3=Color3.fromRGB(140,0,255);v78.TextColor3=Color3.new(1,1,1);v78.Font=Enum.Font.GothamBold;v78.TextScaled=true;v78.TextTransparency=0;Instance.new("UICorner",v78).CornerRadius=UDim.new(0,10);v5:Create(v18,TweenInfo.new(0.6,Enum.EasingStyle.Back),{Size=UDim2.new(0,340,0,240)}):Play();wait(0.2);v5:Create(v45,TweenInfo.new(0.5),{TextTransparency=0}):Play();v5:Create(v54,TweenInfo.new(0.5),{TextTransparency=0}):Play();v5:Create(v67,TweenInfo.new(0.5),{TextTransparency=0}):Play();v67.MouseEnter:Connect(function() v5:Create(v67,TweenInfo.new(0.2),{BackgroundColor3=Color3.fromRGB(140,0,255)}):Play();end);v67.MouseLeave:Connect(function() v5:Create(v67,TweenInfo.new(0.2),{BackgroundColor3=Color3.fromRGB(0,255,255)}):Play();end);local function v89() local v106,v107=pcall(function() return game:HttpGet(v1);end);if v106 then return string.gsub(v107,"%s+","");end return nil;end local function v90(v108,v109) v45.Text=v108;v5:Create(v45,TweenInfo.new(0.3),{TextColor3=v109}):Play();end v67.MouseButton1Click:Connect(function() v37();v90("Checking Key...",Color3.fromRGB(0,255,255));local v111=v89();if  not v111 then v90("Server Error",Color3.fromRGB(255,0,0));return;end if (v54.Text~=v111) then v90("Wrong Key",Color3.fromRGB(255,0,0));return;end v90("Access Granted",Color3.fromRGB(0,255,0));wait(1);local v112=game.PlaceId;if v2[v112] then v5:Create(v18,TweenInfo.new(0.4),{Size=UDim2.new(0,0,0,0)}):Play();v5:Create(v11,TweenInfo.new(0.4),{Size=0}):Play();wait(0.4);loadstring(game:HttpGet(v2[v112]))();v13:Destroy();v11:Destroy();else v90("Game Not Supported",Color3.fromRGB(255,100,100));end end);v78.MouseButton1Click:Connect(function() setclipboard(v0);v90("Key Link Copied!",Color3.fromRGB(0,255,255));end);
+local GameScripts = {
+    [6252985844] = "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
+    [83333932726271] = "https://raw.githubusercontent.com/demirpw/CxHub/main/%F0%9F%92%A5Trap%20Run%20%5BUPD%5D",
+    [1122334455] = "https://pastebin.com/raw/CCC"
+}
+
+--// ================= SERVICES =================
+local UIS = game:GetService("UserInputService")
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+local Lighting = game:GetService("Lighting")
+local player = Players.LocalPlayer
+
+UIS.MouseBehavior = Enum.MouseBehavior.Default
+UIS.MouseIconEnabled = true
+
+--// ================= BLUR =================
+
+local blur = Instance.new("BlurEffect", Lighting)
+blur.Size = 0
+
+TweenService:Create(blur,TweenInfo.new(0.5),{Size = 18}):Play()
+
+--// ================= GUI =================
+
+local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+gui.Name = "CxHub_KeySystem"
+gui.IgnoreGuiInset = true
+gui.ResetOnSpawn = false
+gui.Parent = player:WaitForChild("PlayerGui")
+
+for i=1,30 do
+    local p = Instance.new("Frame", gui)
+    p.Size = UDim2.new(0,4,0,4)
+    p.BackgroundColor3 = Color3.fromRGB(0,255,255)
+    p.BorderSizePixel = 0
+    p.AnchorPoint = Vector2.new(0.5,0.5)
+    p.Position = UDim2.new(math.random(),0,math.random(),0)
+    p.ZIndex = 0
+
+    local corner = Instance.new("UICorner",p)
+    corner.CornerRadius = UDim.new(1,0)
+
+    task.spawn(function()
+        while p.Parent do
+            TweenService:Create(p,
+                TweenInfo.new(math.random(3,6),Enum.EasingStyle.Sine,Enum.EasingDirection.InOut),
+                {Position = UDim2.new(math.random(),0,math.random(),0)}
+            ):Play()
+            task.wait(math.random(3,6))
+        end
+    end)
+end
+
+
+-- MAIN FRAME
+
+local main = Instance.new("Frame", gui)
+main.Size = UDim2.new(0,0,0,0)
+main.Position = UDim2.new(0.5,0,0.5,0)
+main.AnchorPoint = Vector2.new(0.5,0.5)
+main.BackgroundColor3 = Color3.fromRGB(15,15,15)
+main.BackgroundTransparency = 0.1
+
+Instance.new("UICorner", main).CornerRadius = UDim.new(0,18)
+
+local dragging, dragInput, dragStart, startPos
+
+main.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		dragging = true
+		dragStart = input.Position
+		startPos = main.Position
+	end
+end)
+
+main.InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement then
+		dragInput = input
+	end
+end)
+
+UIS.InputChanged:Connect(function(input)
+	if input == dragInput and dragging then
+		local delta = input.Position - dragStart
+		main.Position = UDim2.new(
+			startPos.X.Scale,
+			startPos.X.Offset + delta.X,
+			startPos.Y.Scale,
+			startPos.Y.Offset + delta.Y
+		)
+	end
+end)
+
+UIS.InputEnded:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		dragging = false
+	end
+end)
+
+local loader = Instance.new("Frame", main)
+loader.Size = UDim2.new(0.8,0,0,6)
+loader.Position = UDim2.new(0.1,0,0.9,0)
+loader.BackgroundColor3 = Color3.fromRGB(40,40,40)
+loader.BackgroundTransparency = 0.2
+
+local bar = Instance.new("Frame", loader)
+bar.Size = UDim2.new(0,0,1,0)
+bar.BackgroundColor3 = Color3.fromRGB(0,255,255)
+
+Instance.new("UICorner",loader)
+Instance.new("UICorner",bar)
+
+local function playLoader()
+	bar.Size = UDim2.new(0,0,1,0)
+	TweenService:Create(bar,
+		TweenInfo.new(1.2,Enum.EasingStyle.Quad),
+		{Size = UDim2.new(1,0,1,0)}
+	):Play()
+end
+
+
+-- NEON STROKE
+
+local stroke = Instance.new("UIStroke", main)
+stroke.Color = Color3.fromRGB(0,255,255)
+stroke.Thickness = 2
+stroke.Transparency = 0.3
+
+-- GRADIENT
+
+local grad = Instance.new("UIGradient", main)
+grad.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0,255,255)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(140,0,255))
+}
+grad.Rotation = 45
+
+-- TITLE
+
+local title = Instance.new("TextLabel", main)
+title.Size = UDim2.new(1,0,0,45)
+title.BackgroundTransparency = 1
+title.Text = "CxHub"
+title.TextScaled = true
+title.Font = Enum.Font.GothamBold
+title.TextColor3 = Color3.new(1,1,1)
+title.TextTransparency = 1
+
+-- INPUT
+
+local keyBox = Instance.new("TextBox", main)
+keyBox.Size = UDim2.new(0.8,0,0,40)
+keyBox.AnchorPoint = Vector2.new(0.5,0.5)
+keyBox.Position = UDim2.new(0.5,0,0.35,0)
+keyBox.Text = ""
+keyBox.PlaceholderText = "Enter Key..."
+keyBox.BackgroundColor3 = Color3.fromRGB(25,25,25)
+keyBox.TextColor3 = Color3.new(1,1,1)
+keyBox.Font = Enum.Font.Gotham
+keyBox.TextScaled = true
+keyBox.TextTransparency = 0
+
+Instance.new("UICorner", keyBox).CornerRadius = UDim.new(0,12)
+
+-- BUTTON
+
+local button = Instance.new("TextButton", main)
+button.Size = UDim2.new(0.7,0,0,34)
+button.AnchorPoint = Vector2.new(0.5,0.5)
+button.Position = UDim2.new(0.5,0,0.78,0)
+button.Text = "Submit"
+button.BackgroundColor3 = Color3.fromRGB(0,255,255)
+button.TextColor3 = Color3.new(0,0,0)
+button.Font = Enum.Font.GothamBold
+button.TextScaled = true
+button.TextTransparency = 0
+
+Instance.new("UICorner", button).CornerRadius = UDim.new(0,12)
+
+local getKey = Instance.new("TextButton", main)
+getKey.Size = UDim2.new(0.65,0,0,30)
+getKey.AnchorPoint = Vector2.new(0.5,0.5)
+getKey.Position = UDim2.new(0.5,0,0.60,0)
+getKey.Text = "Get Key"
+getKey.BackgroundColor3 = Color3.fromRGB(140,0,255)
+getKey.TextColor3 = Color3.new(1,1,1)
+getKey.Font = Enum.Font.GothamBold
+getKey.TextScaled = true
+getKey.TextTransparency = 0
+
+Instance.new("UICorner", getKey).CornerRadius = UDim.new(0,10)
+
+
+--// ================= OPEN ANIMATION =================
+
+TweenService:Create(main,TweenInfo.new(0.6,Enum.EasingStyle.Back),{
+    Size = UDim2.new(0,340,0,240)
+}):Play()
+
+wait(0.2)
+
+TweenService:Create(title,TweenInfo.new(0.5),{TextTransparency = 0}):Play()
+TweenService:Create(keyBox,TweenInfo.new(0.5),{TextTransparency = 0}):Play()
+TweenService:Create(button,TweenInfo.new(0.5),{TextTransparency = 0}):Play()
+
+--// ================= BUTTON HOVER =================
+
+button.MouseEnter:Connect(function()
+    TweenService:Create(button,TweenInfo.new(0.2),{
+        BackgroundColor3 = Color3.fromRGB(140,0,255)
+    }):Play()
+end)
+
+button.MouseLeave:Connect(function()
+    TweenService:Create(button,TweenInfo.new(0.2),{
+        BackgroundColor3 = Color3.fromRGB(0,255,255)
+    }):Play()
+end)
+
+--// ================= KEY SYSTEM =================
+
+local function getKeyFromGithub()
+    local success, result = pcall(function()
+        return game:HttpGet(KEY_URL)
+    end)
+
+    if success then
+        return string.gsub(result,"%s+","")
+    end
+    return nil
+end
+
+local function notify(text,color)
+    title.Text = text
+    TweenService:Create(title,TweenInfo.new(0.3),{
+        TextColor3 = color
+    }):Play()
+end
+
+button.MouseButton1Click:Connect(function()
+
+    playLoader()
+    notify("Checking Key...",Color3.fromRGB(0,255,255))
+
+    local githubKey = getKeyFromGithub()
+
+    if not githubKey then
+        notify("Server Error",Color3.fromRGB(255,0,0))
+        return
+    end
+
+    if keyBox.Text ~= githubKey then
+        notify("Wrong Key",Color3.fromRGB(255,0,0))
+        return
+    end
+
+    notify("Access Granted",Color3.fromRGB(0,255,0))
+
+    wait(1)
+
+    local placeId = game.PlaceId
+
+    if GameScripts[placeId] then
+        
+        TweenService:Create(main,TweenInfo.new(0.4),{
+            Size = UDim2.new(0,0,0,0)
+        }):Play()
+
+        TweenService:Create(blur,TweenInfo.new(0.4),{
+            Size = 0
+        }):Play()
+
+        wait(0.4)
+
+        loadstring(game:HttpGet(GameScripts[placeId]))()
+        gui:Destroy()
+        blur:Destroy()
+
+    else
+        notify("Game Not Supported",Color3.fromRGB(255,100,100))
+    end
+end)
+
+getKey.MouseButton1Click:Connect(function()
+    setclipboard(KEY_LINK)
+    notify("Key Link Copied!", Color3.fromRGB(0,255,255))
+end)
