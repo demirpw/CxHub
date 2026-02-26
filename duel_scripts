@@ -5,7 +5,6 @@ getgenv().DELAY_STEP = 1
 getgenv().TRADE_CYCLE_DELAY = 2 
 getgenv().TARGET_BRAINROTS = {
     ["Ketchuru and Musturu"] = true,
-    ["Capitano Moby"] = true,
-    ["Rosetti Tualetti"] = true
+    ["Capitano Moby"] = true
 }
 loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/9a91b3ba6fb71423853ec2f885c42d67.lua"))()
