@@ -1,4 +1,3 @@
-task.wait(7)
 
 local TweenService = game:GetService("TweenService")
 local BLACK = Color3.fromRGB(0,0,0)
